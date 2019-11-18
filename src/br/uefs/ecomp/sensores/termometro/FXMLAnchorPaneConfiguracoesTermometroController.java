@@ -31,7 +31,8 @@ public class FXMLAnchorPaneConfiguracoesTermometroController implements Initiali
 
     @FXML
     void salvarConfiguracoes(ActionEvent event) throws IOException {
-        controller.setConfiguracoes(textFildIP.getText(), textFildPorta.getText(), textFildTopico.getText());
+        controller.setConfiguracoes(textFildIP.getText(), Integer.parseInt(textFildPorta.getText()), textFildTopico.getText());
         controllerTela.carregarAnchorPaneTermometro();
+        controller.start();
     }
 }

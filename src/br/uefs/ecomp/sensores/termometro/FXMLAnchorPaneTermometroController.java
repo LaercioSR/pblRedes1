@@ -3,7 +3,6 @@ package br.uefs.ecomp.sensores.termometro;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
@@ -32,11 +31,13 @@ public class FXMLAnchorPaneTermometroController implements Initializable {
     @FXML
     void aumentarTemperatura(ActionEvent event) {
         textTemperatura.setText(Integer.toString(++temperatura));
+        controller.setTemperatura(Integer.toString(temperatura));
     }
 
     @FXML
     void diminuirTemperatura(ActionEvent event) {
         textTemperatura.setText(Integer.toString(--temperatura));
+        controller.setTemperatura(Integer.toString(temperatura));
     }
 
     @FXML
