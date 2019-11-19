@@ -1,6 +1,7 @@
 package br.uefs.ecomp.sensores.termometro;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -22,6 +23,12 @@ public class Termometro extends Application {
         mostrarTela();
         stage.setResizable(false);
         stage.show();
+
+        Platform.setImplicitExit(true);
+        stage.setOnCloseRequest((ae) -> {
+            Platform.exit();
+            System.exit(0);
+        });
     }
 
     public void mostrarTela() throws IOException {

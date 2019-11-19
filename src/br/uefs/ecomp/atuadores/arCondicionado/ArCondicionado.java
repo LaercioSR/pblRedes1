@@ -2,6 +2,7 @@ package br.uefs.ecomp.atuadores.arCondicionado;
 
 import br.uefs.ecomp.sensores.termometro.Termometro;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -21,11 +22,22 @@ public class ArCondicionado extends Application {
         stage = primaryStage;
 
         FXMLTelaArCondicionadoController controllerTela = (FXMLTelaArCondicionadoController) trocarScene("FXMLTelaArCondicionado.fxml");
+        controllerTela.setApplication(this);
+        controllerTela.setController(controller);
+        controllerTela.carregarAnchorPaneConfiguracoes();
+        controllerTela.carregarAnchorPaneArCondicionado();
+        controllerTela.trocarAnchorPaneConfiguracoes();
         controller.setControllerTela(controllerTela);
 
         stage.setTitle("Ar Condicionado");
         stage.setResizable(false);
         stage.show();
+
+        Platform.setImplicitExit(true);
+        stage.setOnCloseRequest((ae) -> {
+            Platform.exit();
+            System.exit(0);
+        });
     }
 
     private Initializable trocarScene(String fxml) throws IOException {

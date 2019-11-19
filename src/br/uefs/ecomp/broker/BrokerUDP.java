@@ -20,7 +20,7 @@ public class BrokerUDP extends Thread {
     }
 
     public void run() {
-        String texto = new String(datagrama.getData());
+        String texto = new String(datagrama.getData()).trim();
 
         System.out.println("Mensagem recebida: " + texto);
 
@@ -37,6 +37,7 @@ public class BrokerUDP extends Thread {
 
         if(codigo.equals("S")) {
             topico.addSubscriber(datagrama);
+            System.out.println("Testando");
         } else if(codigo.equals("P")) {
             topico.setValor(st.nextToken());
             Iterator subscribers = topico.iteratorSubscribers();

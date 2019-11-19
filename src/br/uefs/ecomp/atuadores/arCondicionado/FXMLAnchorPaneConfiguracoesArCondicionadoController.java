@@ -1,4 +1,4 @@
-package br.uefs.ecomp.sensores.termometro;
+package br.uefs.ecomp.atuadores.arCondicionado;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,30 +9,30 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class FXMLAnchorPaneConfiguracoesTermometroController implements Initializable {
-    private FXMLTelaController controllerTela;
-    private TermometroController controller;
-    @FXML private TextField textFildIP;
-    @FXML private TextField textFildPorta;
+public class FXMLAnchorPaneConfiguracoesArCondicionadoController implements Initializable {
+    private FXMLTelaArCondicionadoController controllerTela;
+    private ArCondicionadoController controller;
     @FXML private TextField textFildTopico;
+    @FXML private TextField textFildPorta;
+    @FXML private TextField textFildIP;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
 
-    public void setControllerTela(FXMLTelaController controllerTela) {
+    public void setControllerTela(FXMLTelaArCondicionadoController controllerTela) {
         this.controllerTela = controllerTela;
     }
 
-    public void setController(TermometroController controller) {
+    public void setController(ArCondicionadoController controller) {
         this.controller = controller;
     }
 
     @FXML
     void salvarConfiguracoes(ActionEvent event) throws IOException {
         controller.setConfiguracoes(textFildIP.getText(), Integer.parseInt(textFildPorta.getText()), textFildTopico.getText());
-        controllerTela.carregarAnchorPaneTermometro();
+        controllerTela.trocarAnchorPaneArCondicionado();
         if(!controller.isAlive()) {
             controller.start();
         }
