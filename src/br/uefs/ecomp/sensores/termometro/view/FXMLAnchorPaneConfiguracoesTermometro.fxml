@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.uefs.ecomp.sensores.termometro.controller.FXMLAnchorPaneConfiguracoesTermometroController">
+   <children>
+      <Button layoutX="119.0" layoutY="319.0" mnemonicParsing="false" onAction="#salvarConfiguracoes" text="Salvar" />
+      <Group layoutX="-14.0" layoutY="38.0">
+         <children>
+            <TextField fx:id="textFildIP" layoutX="104.0" layoutY="93.0" />
+            <Label layoutX="54.0" layoutY="98.0" text="IP" />
+         </children>
+      </Group>
+      <Group layoutX="-14.0" layoutY="33.0">
+         <children>
+            <Label layoutX="54.0" layoutY="147.0" text="Porta" />
+            <TextField fx:id="textFildPorta" layoutX="104.0" layoutY="142.0" />
+         </children>
+      </Group>
+      <Group layoutX="-15.0" layoutY="37.0">
+         <children>
+            <Label layoutX="54.0" layoutY="185.0" text="Tópico" />
+            <TextField fx:id="textFildTopico" layoutX="104.0" layoutY="180.0" />
+         </children>
+      </Group>
+   </children>
+</AnchorPane>
